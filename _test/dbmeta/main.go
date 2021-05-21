@@ -10,11 +10,11 @@ import (
 	"github.com/jimsmart/schema"
 
 	_ "github.com/denisenkom/go-mssqldb"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
+	_ "gorm.io/driver/mysql"
 
-	"github.com/smallnest/gen/dbmeta"
+	"github.com/fairyhunter13/gen/dbmeta"
 )
 
 var (
@@ -31,7 +31,7 @@ func init() {
 		return "ORM and RESTful meta data viewer for SQl databases"
 	}
 	goopt.Version = "v0.9.27 (08/04/2020)"
-	goopt.Summary = `dbmeta [-v] --sqltype=mysql --connstr "user:password@/dbname" --database <databaseName> 
+	goopt.Summary = `dbmeta [-v] --sqltype=mysql --connstr "user:password@/dbname" --database <databaseName>
 
            sqltype - sql database type such as [ mysql, mssql, postgres, sqlite, etc. ]
 
