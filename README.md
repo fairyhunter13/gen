@@ -3,7 +3,7 @@
 [comment]: <> ()
 ## gen
 
-[![License](https://img.shields.io/badge/License-Apache%203.0-blue.svg)](https://opensource.org/licenses/Apache-3.0) [![GoDoc](https://godoc.org/github.com/smallnest/gen?status.png)](http://godoc.org/github.com/smallnest/gen)  [![travis](https://travis-ci.org/smallnest/gen.svg?branch=master)](https://travis-ci.org/smallnest/gen) [![Go Report Card](https://goreportcard.com/badge/github.com/smallnest/gen)](https://goreportcard.com/report/github.com/smallnest/gen)
+[![License](https://img.shields.io/badge/License-Apache%203.0-blue.svg)](https://opensource.org/licenses/Apache-3.0) [![GoDoc](https://godoc.org/github.com/fairyhunter13/gen?status.png)](http://godoc.org/github.com/fairyhunter13/gen)  [![travis](https://travis-ci.org/smallnest/gen.svg?branch=master)](https://travis-ci.org/smallnest/gen) [![Go Report Card](https://goreportcard.com/badge/github.com/fairyhunter13/gen)](https://goreportcard.com/report/github.com/fairyhunter13/gen)
 
 The gen tool produces a CRUD (Create, read, update and delete) REST api project template from a given database. The gen tool will
 connect to the db connection string analyze the database and generate the code based on the flags provided.
@@ -11,7 +11,7 @@ connect to the db connection string analyze the database and generate the code b
 By reading details from the database about the column structure, gen generates a go compatible struct type
 with the required column names, data types, and annotations.
 
-It supports [gorm](https://github.com/jinzhu/gorm) tags and implements some usable methods. Generated data types include support for nullable columns [sql.NullX types](https://golang.org/pkg/database/sql/#NullBool) or [guregu null.X types](https://github.com/guregu/null)
+It supports [gorm](https://gorm.io/gorm) tags and implements some usable methods. Generated data types include support for nullable columns [sql.NullX types](https://golang.org/pkg/database/sql/#NullBool) or [guregu null.X types](https://github.com/guregu/null)
 and the expected basic built in go types.
 
 `gen` is based / inspired by the work of Seth Shelnutt's [db2struct](https://github.com/Shelnutt2/db2struct), and Db2Struct is based/inspired by the work of ChimeraCoder's gojson package [gojson](https://github.com/ChimeraCoder/gojson).
@@ -48,15 +48,13 @@ Code generation for a complete CRUD rest project is possible with DAO crud funct
 ## Binary Installation
 ```BASH
 ## install gen tool (should be installed to ~/go/bin, make sure ~/go/bin is in your path.
-
-## go version < 1.17
-$ go get -u github.com/smallnest/gen
+$ go get -u github.com/fairyhunter13/gen
 
 ## go version == 1.17
 $ go install github.com/smallnest/gen@latest
 
 ## download sample sqlite database
-$ wget https://github.com/smallnest/gen/raw/master/example/sample.db
+$ wget https://github.com/fairyhunter13/gen/raw/master/example/sample.db
 
 ## generate code based on the sqlite database (project will be contained within the ./example dir)
 $ gen --sqltype=sqlite3 \
@@ -137,7 +135,7 @@ Options:
   --gorm                                                   Add gorm annotations (tags)
   --protobuf                                               Add protobuf annotations (tags)
   --proto-fmt=snake                                        proto name format [snake | camel | lower_camel | none]
-  --gogo-proto=                                            location of gogo import 
+  --gogo-proto=                                            location of gogo import
   --db                                                     Add db annotations (tags)
   --guregu                                                 Add guregu null types
   --copy-templates                                         Copy regeneration templates to project directory
@@ -210,7 +208,7 @@ The generated project will contain the following code under the `./example` dire
 The REST api server utilizes the Gin framework, GORM db api and Swag for providing swagger documentation
 * [Gin](https://github.com/gin-gonic/gin)
 * [Swaggo](https://github.com/swaggo/swag)
-* [Gorm](https://github.com/jinzhu/gorm)
+* [Gorm](https://gorm.io/gorm)
 * [packr2](https://github.com/gobuffalo/packr)
 
 
@@ -438,7 +436,7 @@ Table Name: registration_source
 ## Version History
 - v0.9.27 (08/04/2020)
     - Updated '--exec' mode to provide various functions for processing
-    - copy function updated to provide --include and --exclude patterns. Patterns are processed in order, an include preceeding an exclude will take precedence. Multiple include and excludes can be specified. Files ending with .table.tmpl will be processed for each table. Output filenames will be stored in the proper directory, with a name of the table with the suffix of the template extension. Files ending with .tmpl will be processed as a template and the filename will be the name of the template stripped with the .tmpl suffix. 
+    - copy function updated to provide --include and --exclude patterns. Patterns are processed in order, an include preceeding an exclude will take precedence. Multiple include and excludes can be specified. Files ending with .table.tmpl will be processed for each table. Output filenames will be stored in the proper directory, with a name of the table with the suffix of the template extension. Files ending with .tmpl will be processed as a template and the filename will be the name of the template stripped with the .tmpl suffix.
     - When processing templates, files generated with a .go extension will be formatted with the go fmt.
 - v0.9.26 (07/31/2020)
     - Release scripting
@@ -539,4 +537,4 @@ Table Name: registration_source
 ## Contributors
 - [alexj212](https://github.com/alexj212) -  a big thanks to alexj212 for his contributions
 
-See more contributors: [contributors](https://github.com/smallnest/gen/graphs/contributors)
+See more contributors: [contributors](https://github.com/fairyhunter13/gen/graphs/contributors)
