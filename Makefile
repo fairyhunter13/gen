@@ -186,4 +186,4 @@ release: gen_readme fmt gen install example  ## prepare release
 git_sync: ## git sync upstream
 	git fetch upstream
 	git checkout master
-	git merge upstream/maste
+	git merge upstream/master
